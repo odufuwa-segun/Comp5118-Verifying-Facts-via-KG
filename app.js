@@ -282,21 +282,24 @@ async function verifySentenceTriples(triple, nodes){
 
     console.log(wikidata_entities);
 
-    var subject_match = matchEntity(subject, wikidata_entities);
+    var subject_match = await matchEntity(subject, wikidata_entities);
     if (!subject_match){
-        subject_match = matchNeo4jType(subject);
+        subject_match = await matchNeo4jType(subject);
     }
-    var object_match = matchEntity(object, wikidata_entities);
+    var object_match = await matchEntity(object, wikidata_entities);
     if (!object_match){
-        object_match = matchNeo4jType(object);
+        object_match = await matchNeo4jType(object);
     }
     if (!object_match){
-        object_match = matchNounTriples(object);
+        object_match = await matchNounTriples(object);
     }
 
 
     console.log('Matched Subject: ');
     console.log(subject_match);
+
+    console.log('Matched Object');
+    console.log(object_match);
 
     // heuristics
     // match subject:type to another object:entity via relation
@@ -370,15 +373,15 @@ async function matchEntity(text, wikidata_entities){
 
     for (var i=0; i< wikidata_entities.length;i++){
         var wikidata_entity = wikidata_entities[i];
-        var wikidata_entity_id = wikidata_entity[0].replace('/[<>]/','').replace('http://www.wikidata.org/entity/', '');;
+        var wikidata_entity_id = wikidata_entity[0].replace('<','').replace('>','').replace('http://www.wikidata.org/entity/', '');;
         var wikidata_entity_label = wikidata_entity[1];
 
-        console.log(`${wikidata_entity_label} vs ${text}`);
+        console.log(`${wikidata_entity_id}: ${wikidata_entity_label} vs ${text}`);
         if (wikidata_entity_label.toLowerCase() == text.toLowerCase()){
             // match found
             console.log('Matched entity found');
             entity = {
-                match: 'entity', path: 'id', value: wikidata_entity_id
+                match: 'entity', path: 'wikiId', value: wikidata_entity_id
             };
             return entity;
             break;
