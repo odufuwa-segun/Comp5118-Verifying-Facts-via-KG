@@ -301,6 +301,15 @@ async function verifySentenceTriples(triple, nodes){
     console.log('Matched Object');
     console.log(object_match);
 
+    
+   
+    var kb_possible_relation = [
+
+    ];
+
+}
+
+async function matchParsedByRules(){
     // heuristics
     // match subject:type to another object:entity via relation
     // match subject:entity to object:entity via relation
@@ -323,12 +332,12 @@ async function verifySentenceTriples(triple, nodes){
     // 
 
     var rules = [
-        'subject:entity-relation:instance_of-object:type',
-        'subject:entity-relation:has_attribute-object:attribute',
-        'subject:entity-relation:attribute-object:value',
-        'subject:type-relation:has_attribute-object:attribute',
-        'subject:type-relation:relation-object:entity',
-        'subject:entity-relation:relation-object:entity',
+        'entity:instance_of:type',
+        'entity:has_attribute:attribute',
+        'entity:attribute:value',
+        'type:has_attribute:attribute',
+        'type:relation:entity',
+        'entity:relation:entity',
 
 
 
@@ -336,10 +345,9 @@ async function verifySentenceTriples(triple, nodes){
         // 'subject:entity-relation:property-object:attribute',
         // 'subject:entity-relation:property-object:attribute',
     ];
-   
-    var kb_possible_relation = [
 
-    ];
+
+
 
 }
 
@@ -435,6 +443,10 @@ async function getNeo4jLabels(){
         await session.close()
     }
     return labels;
+}
+
+async function getNeo4jLabelRelations(){
+
 }
 
 function md5(string){
