@@ -1,0 +1,24 @@
+{
+  "name": "itec5207backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "body-parser": "^1.19.0",
+    "csv-parser": "^2.3.3",
+    "express": "^4.17.1",
+    "json2csv": "^5.0.3",
+    "jsonexport": "^3.0.1",
+    "md5": "^2.3.0",
+    "neo4j-driver": "^4.2.1",
+    "nodemon": "^2.0.6",
+    "sqlite3": "^5.0.0"
+  }
+}

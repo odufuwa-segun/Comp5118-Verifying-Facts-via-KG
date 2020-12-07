@@ -1,2 +1,6 @@
-# Comp5118 - Verifying Facts via KG
- COMP5118 Project - Verifying facts via Knowledge Graph
+conda env create -f environment.yml
+conda activate openie
+
+pip install stanford_openie
+pip install graphviz
+
