@@ -37,6 +37,7 @@ There are a number of steps required to get the system up and running:
 3. Populating the Neo4j Database: A dump of the database is provided in *./data/graph.dump.db*. This dump can be restored using the terminal command below:
 
 > neo4j-admin load --from=<path-to>/graph.dump.db --database=<database-name> 
+
 If the database used to load doesnt exists prior to loading, it must be created afterwards using the `CREATE DATABASE <database>`
 
 ## Using the system:
