@@ -1,19 +1,4 @@
-
-
-
-
-conda env create -f environment.yml
-conda activate openie
-
-pip install stanford_openie
-pip install graphviz
-
-https://github.com/philipperemy/Stanford-OpenIE-Python
-
-
-Title
 # Verifying Facts about Entities using a Knowledge Graph
-----------------------------------------------
 
 ## Requirements:
 
@@ -27,7 +12,7 @@ Python depedencies can be installed using [Anaconda](https://www.anaconda.com/) 
 
 The only dependency not already included in the source code is the Stanford OpenIE Python Wrapper. Installation instructions can be found [here](https://github.com/philipperemy/Stanford-OpenIE-Python).
 
-The NodeJS dependencies can be installed using the `npm install` command from terminal.
+The NodeJS dependencies can then be installed using the `npm install` command from terminal.
 
 
 ## Getting Started:
